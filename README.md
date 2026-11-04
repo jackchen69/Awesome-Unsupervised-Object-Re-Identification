@@ -1,14 +1,11 @@
-<!-- ========================= HEADER ========================= -->
+<a id="top"></a>
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:4f46e5,50:7c3aed,100:db2777&height=220&section=header&text=Awesome%20Unsupervised%20Re-ID&fontSize=46&fontColor=ffffff&fontAlignY=36&desc=Person%20%E2%80%A2%20Vehicle%20%E2%80%A2%20Animal%20%E2%80%A2%20Vessel&descAlignY=58&descSize=18&animation=fadeIn" width="100%"/>
-
-<a href="#">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3500&pause=800&color=7C3AED&center=true&vCenter=true&width=720&lines=Unsupervised+Object+Re-Identification;Recent+Advances%2C+Challenges%2C+and+Future+Directions;The+first+dedicated+survey+across+4+object+categories" alt="Typing SVG"/>
-</a>
+<img src="fig/banner.png" width="100%" alt="Awesome Unsupervised Object Re-Identification"/>
 
 <p>
   <a href="#"><img src="https://img.shields.io/badge/📄_Paper-arXiv-b31b1b?style=for-the-badge" alt="Paper"/></a>
+  <a href="#-demo-what-is-unsupervised-object-re-id"><img src="https://img.shields.io/badge/🎬_Demo-Video-7c3aed?style=for-the-badge" alt="Demo"/></a>
   <a href="https://awesome.re"><img src="https://img.shields.io/badge/Awesome-List-fc60a8?style=for-the-badge&logo=awesomelists&logoColor=white" alt="Awesome"/></a>
   <a href="#-contributing"><img src="https://img.shields.io/badge/PRs-Welcome-22c55e?style=for-the-badge" alt="PRs"/></a>
 </p>
@@ -16,13 +13,14 @@
   <img src="https://img.shields.io/github/stars/YOUR_ORG/Awesome-Unsupervised-ReID?style=flat-square&logo=github&color=f59e0b" alt="Stars"/>
   <img src="https://img.shields.io/github/forks/YOUR_ORG/Awesome-Unsupervised-ReID?style=flat-square&logo=github&color=3b82f6" alt="Forks"/>
   <img src="https://img.shields.io/github/last-commit/YOUR_ORG/Awesome-Unsupervised-ReID?style=flat-square&color=10b981" alt="Last commit"/>
-  <img src="https://img.shields.io/badge/Papers-180%2B-8b5cf6?style=flat-square" alt="Papers"/>
-  <img src="https://img.shields.io/badge/Datasets-38-ec4899?style=flat-square" alt="Datasets"/>
+  <img src="https://img.shields.io/badge/Research_Areas-5-8b5cf6?style=flat-square" alt="Areas"/>
+  <img src="https://img.shields.io/badge/Objects-Person·Vehicle·Animal·Vessel-ec4899?style=flat-square" alt="Objects"/>
 </p>
 
+**[🎬 Demo](#-demo-what-is-unsupervised-object-re-id)** ·
 **[📖 Introduction](#-introduction)** ·
 **[🗺️ Taxonomy](#️-taxonomy)** ·
-**[📚 Paper List](#-paper-list)** ·
+**[📚 Papers](#-paper-list)** ·
 **[🗃️ Datasets](#️-datasets)** ·
 **[🔭 Future](#-future-directions)** ·
 **[📝 Citation](#-citation)**
@@ -30,44 +28,66 @@
 </div>
 
 > [!NOTE]
-> This repository accompanies our survey **"Unsupervised Object Re-Identification: Recent Advances, Challenges, and Future Directions"**. We will continuously update it with new papers — ⭐ **star** the repo to stay tuned, and feel free to open a PR!
+> This repository accompanies our survey **"Unsupervised Object Re-Identification: Recent Advances, Challenges, and Future Directions"** — to our knowledge, the **first dedicated survey** of unsupervised Re-ID across **persons, vehicles, animals, and vessels**. ⭐ **Star** the repo to follow updates, and PRs are always welcome!
 
 ---
 
 ## 🔥 News
 
+- **`2026-11`** 🎬 A 1-minute **animated demo** explaining unsupervised Re-ID is released ([MP4](fig/demo.mp4)).
 - **`2026-11`** 🎉 The awesome list is released, covering **5 research areas** and **VLM-based** unsupervised Re-ID.
 - **`2026-xx`** 📄 Our survey is available on [arXiv](#).
 
 ---
 
-## 📖 Introduction
+## 🎬 Demo: What is Unsupervised Object Re-ID?
+
+<div align="center">
+
+<a href="fig/demo.mp4"><img src="fig/demo.gif" width="88%" alt="Demo: what is unsupervised object re-identification"/></a>
+
+<sub>▶️ <b>Click the animation to download the full-resolution 1080p video</b> (<a href="fig/demo.mp4"><code>fig/demo.mp4</code></a>, 55 s)</sub>
+
+</div>
 
 <table>
 <tr>
-<td width="58%">
-
-**Unsupervised object Re-ID** learns to associate the same identity across non-overlapping cameras **without target-domain identity annotations**.
-
-To the best of our knowledge, this is the **first dedicated survey** of unsupervised Re-ID spanning **persons, vehicles, animals, and vessels**.
-
-- 🗂️ **5 research areas** — image, video, cross-modal, scenario-specific, emerging tasks
-- 🔍 **Mechanism-centric** — how supervision & identity associations are built, and where they break
-- 🧠 **VLM analysis** — text augmentation, prompt learning, dual-centroid experiment
-- 🚀 **5 future directions** — VLM, multi-modality, federated, lifelong, lightweight
-
-</td>
-<td width="42%">
-<img src="figures/fig1.png" alt="Generic object Re-ID process"/>
-<p align="center"><sub><b>Fig. 1.</b> The generic object Re-ID process.</sub></p>
-</td>
+<td align="center" width="14%"><b>①</b><br/><sub>What is Re-ID?</sub></td>
+<td align="center" width="14%"><b>②</b><br/><sub>Matching across cameras</sub></td>
+<td align="center" width="14%"><b>③</b><br/><sub>The annotation bottleneck</sub></td>
+<td align="center" width="16%"><b>④</b><br/><sub>Cluster → pseudo-label → train</sub></td>
+<td align="center" width="14%"><b>⑤</b><br/><sub>Why it is hard</sub></td>
+<td align="center" width="14%"><b>⑥</b><br/><sub>VLM guidance</sub></td>
+<td align="center" width="14%"><b>⑦</b><br/><sub>Survey scope</sub></td>
 </tr>
 </table>
 
+---
+
+## 📖 Introduction
+
+**Object Re-Identification (Re-ID)** retrieves all images of the same identity — a person, vehicle, animal, or vessel — across **non-overlapping cameras**. **Unsupervised Re-ID** learns this ability **without target-domain identity annotations**, which makes Re-ID systems scalable to new environments and privacy-sensitive deployments.
+
 <p align="center">
-  <img src="figures/chapter_division.png" width="92%" alt="Organization of the survey"/>
-  <br/><sub><b>Fig. 2.</b> Overall organization of this survey.</sub>
+  <img src="fig/reid_process.png" width="96%" alt="Generic object Re-ID process"/>
+  <br/><sub><b>Fig. 1.</b> The generic object Re-ID process: a query is encoded and used to rank a cross-camera gallery.</sub>
 </p>
+
+<p align="center">
+  <img src="fig/settings.png" width="96%" alt="Supervised, UDA and USL settings"/>
+  <br/><sub><b>Fig. 2.</b> Learning settings. <b>UDA</b> uses a labeled source domain; <b>USL</b> uses no labeled Re-ID data at all.</sub>
+</p>
+
+### ✨ Highlights of this survey
+
+<table>
+<tr>
+<td width="25%" align="center">🗂️<br/><b>5 Research Areas</b><br/><sub>image · video · cross-modal · scenario-specific · emerging</sub></td>
+<td width="25%" align="center">🔍<br/><b>Mechanism-centric</b><br/><sub>how supervision & identity associations are built — and where they fail</sub></td>
+<td width="25%" align="center">🧠<br/><b>VLM Analysis</b><br/><sub>text augmentation, prompt learning, dual-centroid experiment</sub></td>
+<td width="25%" align="center">🚀<br/><b>Future Directions</b><br/><sub>VLM · multi-modality · federated · lifelong · lightweight</sub></td>
+</tr>
+</table>
 
 <details>
 <summary><b>📊 Comparison with existing Re-ID surveys</b> (click to expand)</summary>
@@ -89,52 +109,30 @@ To the best of our knowledge, this is the **first dedicated survey** of unsuperv
 
 ## 🗺️ Taxonomy
 
-```mermaid
-flowchart LR
-    ROOT(["🎯 Unsupervised<br/>Object Re-ID"]):::root
-
-    ROOT --> IMG["🖼️ Image-based"]:::a
-    ROOT --> VID["🎞️ Video-based"]:::b
-    ROOT --> CM["🔀 Cross-modal"]:::c
-    ROOT --> SC["🎭 Scenario-specific"]:::d
-    ROOT --> EM["🐾 Emerging Tasks"]:::e
-    ROOT --> VLM["🧠 VLM-based"]:::f
-
-    IMG --> UDA["UDA"] & USL["USL"]
-    UDA --> U1["Feature-level"] & U2["Image-level"] & U3["Clustering self-training"]
-    USL --> L1["Pseudo-label refinement"] & L2["Feature enhancement"] & L3["Camera bias"]
-    VID --> V1["Intra-tracklet refinement"] & V2["Auxiliary-cue association"]
-    CM --> C1["Text-to-Image"] & C2["Visible-Infrared"]
-    SC --> S1["Clothing-change"] & S2["Cross-resolution"] & S3["Group"]
-    EM --> E1["Vessel"] & E2["Animal"]
-    VLM --> F1["Text augmentation"] & F2["Prompt learning"]
-
-    classDef root fill:#4f46e5,color:#fff,stroke:#312e81,stroke-width:2px
-    classDef a fill:#ede9fe,stroke:#7c3aed,color:#3b0764
-    classDef b fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
-    classDef c fill:#cffafe,stroke:#0891b2,color:#164e63
-    classDef d fill:#fce7f3,stroke:#db2777,color:#831843
-    classDef e fill:#dcfce7,stroke:#16a34a,color:#14532d
-    classDef f fill:#fef3c7,stroke:#d97706,color:#78350f
-```
+<p align="center">
+  <img src="fig/taxonomy.png" width="96%" alt="Taxonomy"/>
+  <br/><sub><b>Fig. 3.</b> We organize unsupervised object Re-ID into five research areas plus a dedicated VLM analysis.</sub>
+</p>
 
 <p align="center">
-  <img src="figures/timeline.png" width="88%" alt="Timeline"/>
-  <br/><sub><b>Fig. 3.</b> Representative milestones of unsupervised Re-ID (2021 – 2024).</sub>
+  <img src="fig/timeline.png" width="96%" alt="Timeline"/>
+  <br/><sub><b>Fig. 4.</b> Representative milestones (2018 – 2026), colored by research area.</sub>
 </p>
+
+<p align="right"><a href="#top">🔝 Back to top</a></p>
 
 ---
 
 ## 📚 Paper List
 
 <details>
-<summary><b>🔖 Legend</b></summary>
+<summary><b>🔖 Badge legend</b></summary>
 <br/>
 
 | Badge | Meaning |
 |:--|:--|
 | ![](https://img.shields.io/badge/CVPR-2022-1f6feb?style=flat-square) | Top conference (CVPR / ICCV / ECCV / NeurIPS / ICLR / ICML / AAAI) |
-| ![](https://img.shields.io/badge/TIP-2021-0891b2?style=flat-square) | Journal (TPAMI / TIP / IJCV / PR / IF ...) |
+| ![](https://img.shields.io/badge/TIP-2021-0891b2?style=flat-square) | Journal (TPAMI / TIP / IJCV / PR / IF / TOMM …) |
 | ![](https://img.shields.io/badge/ACM%20MM-2023-7c3aed?style=flat-square) | ACM MM / BMVC / ACCV / WACV |
 | ![](https://img.shields.io/badge/Venue-2024-9ca3af?style=flat-square) | Venue to be updated |
 | ![](https://img.shields.io/badge/UDA-f97316?style=flat-square) ![](https://img.shields.io/badge/USL-22c55e?style=flat-square) | With / without labeled source Re-ID data |
@@ -142,6 +140,8 @@ flowchart LR
 </details>
 
 ### 🧱 Technical Foundations
+
+<p align="center"><img src="fig/usl_pipeline.png" width="96%" alt="Clustering-based USL pipeline"/></p>
 
 | Method | Title | Venue | Code |
 |:--:|:--|:--:|:--:|
@@ -161,6 +161,8 @@ $$
 \mathcal{L}_{\mathrm{ClusterNCE}} = -\frac{1}{B}\sum_{i=1}^{B}\log\frac{\exp(\mathbf{f}_i\cdot\mathbf{w}_{y_i}/\tau)}{\sum_{j=1}^{C}\exp(\mathbf{f}_i\cdot\mathbf{w}_j/\tau)}
 $$
 
+where $\mathbf{f}_i$ is the $\ell_2$-normalized feature, $\mathbf{w}_j$ the $j$-th cluster prototype, $y_i$ the pseudo-label and $\tau$ the temperature.
+
 </details>
 
 <p align="right"><a href="#top">🔝 Back to top</a></p>
@@ -169,9 +171,9 @@ $$
 
 ### 🖼️ Image-based Unsupervised Re-ID
 
-<p align="center"><img src="figures/uda.png" width="85%" alt="UDA paradigms"/></p>
-
 #### ![](https://img.shields.io/badge/UDA-f97316?style=flat-square) Unsupervised Domain Adaptation
+
+<p align="center"><img src="fig/uda_paradigms.png" width="96%" alt="UDA paradigms"/></p>
 
 <details open>
 <summary><b>① Feature-level Adaptation</b></summary>
@@ -307,6 +309,8 @@ $$
 
 ### 🔀 Cross-modal Unsupervised Re-ID
 
+<p align="center"><img src="fig/crossmodal.png" width="96%" alt="Cross-modal Re-ID"/></p>
+
 #### 📝 Text-to-Image Re-ID
 
 | Method | Title | Venue | Type |
@@ -386,7 +390,7 @@ $$
 
 ### 🎭 Scenario-specific Unsupervised Re-ID
 
-<p align="center"><img src="figures/scenario_specific.png" width="85%" alt="Scenario-specific challenges"/></p>
+<p align="center"><img src="fig/scenarios.png" width="96%" alt="Scenario-specific challenges"/></p>
 
 <table>
 <tr>
@@ -429,7 +433,7 @@ $$
 
 ### 🐾 Emerging Tasks
 
-<p align="center"><img src="figures/animal.png" width="70%" alt="Animal and vessel examples"/></p>
+<p align="center"><img src="fig/emerging.png" width="96%" alt="Animal and vessel Re-ID"/></p>
 
 #### 🚢 Vessel Re-ID
 
@@ -465,7 +469,7 @@ $$
 
 ### 🧠 VLM-based Unsupervised Re-ID
 
-<p align="center"><img src="figures/vlm.png" width="82%" alt="From visual to VLM-based framework"/></p>
+<p align="center"><img src="fig/vlm_framework.png" width="96%" alt="From visual to VLM-based framework"/></p>
 
 <table>
 <tr>
@@ -504,7 +508,9 @@ $$
 
 #### 🧪 Illustrative Experiment · Visual-Textual Dual Centroids
 
-> Backbone: **CLIP ViT-B/16** · Setting: **USL** · Loss: **ClusterNCE** for both centroids · Prompt: `"A photo of [CLS] person"`
+> Backbone: **CLIP ViT-B/16** · Setting: **USL** · Loss: **ClusterNCE** on both centroids · Prompt: `"A photo of [CLS] person"`
+
+<p align="center"><img src="fig/dual_centroid.png" width="92%" alt="Dual-centroid results"/></p>
 
 <div align="center">
 
@@ -524,6 +530,8 @@ $$
 ---
 
 ## 🗃️ Datasets
+
+<p align="center"><img src="fig/datasets.png" width="92%" alt="Datasets overview"/></p>
 
 <details open>
 <summary><b>👤🚗 Person & Vehicle Datasets</b></summary>
@@ -595,15 +603,15 @@ $$
 
 ## 🔭 Future Directions
 
-<table>
-<tr>
-<td align="center" width="20%">🧠<br/><b>Meeting VLMs</b><br/><sub>VLMs as semantic verifiers for pseudo-label correction</sub></td>
-<td align="center" width="20%">🌈<br/><b>Multi-Modality</b><br/><sub>RGB / NIR / TIR / sketch with missing modalities</sub></td>
-<td align="center" width="20%">🔒<br/><b>Federated</b><br/><sub>Cross-client label alignment & fair aggregation</sub></td>
-<td align="center" width="20%">♾️<br/><b>Lifelong</b><br/><sub>Against forgetting & pseudo-label drift</sub></td>
-<td align="center" width="20%">⚡<br/><b>Lightweight</b><br/><sub>Compact backbones, quantization & distillation</sub></td>
-</tr>
-</table>
+<p align="center"><img src="fig/future.png" width="96%" alt="Future directions"/></p>
+
+| Direction | Key open problem |
+|:--|:--|
+| 🧠 **Meeting VLMs** | Use VLMs as dynamic *semantic verifiers* for pseudo-label correction, not only as feature extractors |
+| 🌈 **Multi-Modality** | Cluster by identity rather than by sensor across RGB / NIR / TIR / sketch, with arbitrary missing modalities |
+| 🔒 **Federated Learning** | Cross-client pseudo-label alignment and fairness-aware aggregation beyond size weighting |
+| ♾️ **Lifelong Re-ID** | Avoid catastrophic forgetting *and* pseudo-label drift on continuous unlabeled streams |
+| ⚡ **Lightweight Deployment** | Compact backbones, pruning, quantization and distillation for edge devices |
 
 ---
 
@@ -633,16 +641,28 @@ We warmly welcome contributions! If you find a missing paper, a wrong venue, or 
 | **Method** | Paper Title | ![](https://img.shields.io/badge/CVPR-2026-1f6feb?style=flat-square) | [![](https://img.shields.io/github/stars/owner/repo?style=social)](https://github.com/owner/repo) |
 ```
 
+<details>
+<summary><b>🎨 Regenerating the figures & demo video</b></summary>
+<br/>
+
+All figures in [`fig/`](fig) and the demo video are generated from code in [`scripts/`](scripts) (Python · Matplotlib · FFmpeg):
+
+```bash
+pip install matplotlib numpy pillow
+python scripts/figs1.py fig          # banner, Re-ID process, settings, taxonomy, UDA, USL pipeline
+python scripts/figs2.py fig          # scenarios, cross-modal, emerging, VLM, results, timeline, datasets, future
+python scripts/video.py fig/_video   # renders 7 scenes → concat into fig/demo.mp4
+```
+
+</details>
+
 ## ✨ Star History
 
 <div align="center">
 <a href="https://star-history.com/#YOUR_ORG/Awesome-Unsupervised-ReID&Date">
   <img src="https://api.star-history.com/svg?repos=YOUR_ORG/Awesome-Unsupervised-ReID&type=Date" width="70%" alt="Star History"/>
 </a>
-</div>
 
-<div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:db2777,50:7c3aed,100:4f46e5&height=110&section=footer" width="100%"/>
-
+<br/><br/>
 <sub>Made with ❤️ by the authors · If this list helps you, a ⭐ means a lot!</sub>
 </div>
